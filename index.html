@@ -272,13 +272,10 @@
 		//loop through the number of cells to fill, check, and then fill
 		for(k=0; k<=num_cells; k++){
 			check = 0;
-
 			//randomly chosen number between 0 and 80 -- which cell to fill
 			var number = Math.floor(Math.random()*80); 
 			//randomly chosen number between 1 and 9 to place into a cell
 			var rand = Math.floor(Math.random()*8)+1; 
-			
-
 			if(	board[number] == 0 ) {
 				board[number] = rand;
 			while( !(genRow(board , number) && genCol(board , number) && genBox(board,number))) {
