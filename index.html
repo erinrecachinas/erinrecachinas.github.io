@@ -359,8 +359,10 @@ var b9 = new Array();
 					board[i] = parseInt($('div input').eq(i).val());
 					generateValues(board);
 				}
+				else board[i] = 0;
 			}
 			while (atCell >= 0 && atCell < 81) {
+				console.log(atCell);
 				if (initial.indexOf(atCell) != -1) {
 					if (forward) {
 						atCell++;
@@ -368,14 +370,14 @@ var b9 = new Array();
 					}
 					else {
 						atCell--;
-						m=1;
+						m=board[atCell-1];
 					}
 				} else if (parseInt($('div input').eq(atCell).val()) == 9) {
 					$('div input').eq(atCell).val("");
-					board[atCell] = "";
+					board[atCell] = 0;
 					forward = false;
 					atCell--;
-					m=1;
+					m=board[atCell-1];
 				} else {
 
 					// if(atCell == 0) {
