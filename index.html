@@ -141,7 +141,7 @@
 		<div id="sub1">
 			<input id="one" style="border-top:1px solid black;border-left:1px solid black"></input>
 			<input id="one" style="border-top:1px solid black;"></input>
-			<input id="one" style="border-top:1px solid black;border-right:1px solid black"></input>
+			<input id="one" style="border-top:1px solid black;border-right:2px solid black"></input>
 			<input id="two" style="border-top:1px solid black;border-left:1px solid black;"></input>
 			<input id="two" style="border-top:1px solid black;"></input>
 			<input id="two" style="border-top:1px solid black;border-right:1px solid black;"></input>
@@ -272,20 +272,17 @@
 		console.log(num_cells);
 		//loop through the number of cells to fill, check, and then fill
 		for(k=0; k<=num_cells; k++){
-			console.log("k =" + " " + k);
 			check = 0;
 
 			//randomly chosen number between 0 and 80 -- which cell to fill
 			var number = Math.floor(Math.random()*80); 
 			//randomly chosen number between 1 and 9 to place into a cell
 			var rand = Math.floor(Math.random()*8)+1; 
-			console.log(number);
-			console.log(rand);
+			
 
 			if(	board[number] == 0 ) {
 				board[number] = rand;
 			while( !(genRow(board , number) && genCol(board , number) && genBox(board,number))) {
-				console.log("check")
 				check++;
 				if(board[number] == 9)
 					board[number] = 1;
@@ -364,7 +361,6 @@ var b9 = new Array();
 				}
 			}
 			while (atCell >= 0 && atCell < 81) {
-				console.log(atCell);
 				if (initial.indexOf(atCell) != -1) {
 					if (forward) {
 						atCell++;
@@ -1436,7 +1432,7 @@ var b9 = new Array();
 					// 	}
 					// }
 
-					if($('div input').eq(atCell).val() == "") {
+					if($('div input').eq(atCell).val() == "" || parseInt($('div input').eq(atCell).val()) == 0) {
 						$('div input').eq(atCell).val(1);
 					}
 
