@@ -297,15 +297,12 @@
 			}
 			
 		}
-		var sol = isSolvable(board);
-		if(sol) {
-
 			for(i = 0; i<81; i++) {
 				if(board[i] != "" && board[i] != 0) {
 					$('div input').eq(i).val(board[i]);
 				}
 			}
-		}
+		
 		
 		}
 	
@@ -405,6 +402,9 @@ var b9 = new Array();
 
 			
 			if(atCell>80) {
+				for(int i;i<81;i++) {
+					console.log(board[i]);
+				}
 				alert("Board Solved!");
 				return true;
 
