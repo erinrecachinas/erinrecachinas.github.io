@@ -398,7 +398,7 @@ var b9 = new Array();
 
 			
 			if(atCell>80) {
-				for(int i;i<81;i++) {
+				for(i = 0;i<81;i++) {
 					console.log(board[i]);
 				}
 				alert("Board Solved!");
@@ -1015,7 +1015,6 @@ function isSolvable(board) {
 			if(atCell>80) {
 				for(t=0;t<81;t++) {
 					SOLVED_BOARD[t] = board[t];
-					console.log(board[t]);
 				}
 				return true;
 			}
