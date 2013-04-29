@@ -377,11 +377,8 @@ var b9 = new Array();
 				} else {
 
 					if($('div input').eq(atCell).val() == "" || parseInt($('div input').eq(atCell).val()) == 0) {
-						$('div input').eq(atCell).val(parseInt($('div input').eq(atCell-1).val()));
+						$('div input').eq(atCell).val(parseInt($('div input').eq(atCell-1).val() + 1));
 					}
-					
-					if(board[atCell] == "" || board[atCell] == 0)
-						board[atCell] = 1;
 					
 					else {
 						$('div input').eq(atCell).val(parseInt($('div input').eq(atCell).val()) + 1);
