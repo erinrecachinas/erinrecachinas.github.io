@@ -368,9 +368,9 @@ var b9 = new Array();
 					else {
 						atCell--;
 					}
-				} //else if (parseInt($('div input').eq(atCell).val()) == 9) {
-				if(board[atCell] == 9) {
-					//$('div input').eq(atCell).val("");
+				} 
+				else if (parseInt($('div input').eq(atCell).val()) == 9) {
+					$('div input').eq(atCell).val("");
 					board[atCell] = 0;
 					forward = false;
 					atCell--;
