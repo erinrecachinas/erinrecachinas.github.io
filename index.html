@@ -217,28 +217,29 @@
 				padding-top:40px;
 				text-align:center;
 			}
-			#drop_zone{
+			/*#drop_zone{
 				position:absolute;
 				border:1px dashed #aaa;
 				width:100px;
-			}
-			#upload{
+			}*/
+			/*#upload{
 				position:absolute;
 				width:127px;
 				height:20px;
 				/*box-shadow:0 0 5px #222;*/
-				text-align:center;
-				font-weight:100;
+				/*text-align:center;
+				font-weight:100;*/
 				/*top:1000%;*/
-				display:inline-block;
+				/*display:inline-block;
 				cursor:pointer;
 				border-radius:2px;
-				background-color:rgb(126, 178, 226); /*want green*/
-				color:#f8f8ff;
+				background-color:rgb(126, 178, 226);*/ /*want green*/
+				/*color:#f8f8ff;
 				-webkit-transition:all .3s ease;
 				-moz-transition:all .3s ease;
 				transition:all .3s ease;
-			}
+			}*/
+
 			.container_button{
 				padding-top:20px;
 				position:relative;
@@ -252,8 +253,8 @@
 <body>
 	<h1>Sudoku</h1>
 	<h3>by <a href="mailto:erv4xa@virginia.edu">Erin Veasey</a></h3>
-	<div id="drop_zone">Drop files here</div>
-	<output id="list"></output>
+	<!--<div id="drop_zone">Drop files here</div>-->
+	<!-- <output id="list"></output> -->
 	<div class="load_parent">	
 		<div class="loading">
 			<div class="loading-dot"></div>
@@ -1023,46 +1024,8 @@ function jq_append(input_id,text){
 
 
 
-//
-//					File Import
-//------------------------------------------------------
-
-function handleFileSelect(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-
-    var files = evt.dataTransfer.files; // FileList object.
-
-    // files is a FileList of File objects. List some properties.
-    var output = [];
-    for (var i = 0, f; f = files[i]; i++) {
-      output.push('<li><strong>', escape(f.name), '</strong></li>'
-                  );
-    }
-    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-    $('#list').append('<div id="upload">Upload</div>');
-}
-
-function handleDragOver(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-}
-
-  // Setup the dnd listeners.
-var dropZone = document.getElementById('drop_zone');
-dropZone.addEventListener('dragover', handleDragOver, false);
-dropZone.addEventListener('drop', handleFileSelect, false);
 
 
-// Read file into Sudoku board
-function uploadFile(){
-  	// for(i=0;i<file.length;i++)
-  	// 	$('div input').eq(i).val(file[i]);
-  	console.log("Success!");
-}
-
-$('#upload').click(uploadFile);
 
 </script>
 </html>
