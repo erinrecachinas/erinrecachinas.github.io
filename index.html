@@ -7,6 +7,7 @@
 		<link href="img/favicon.ico" rel="icon" type="image/x-icon" />
 		<meta name="Sudoku" content="">
 		<meta name="Erin Veasey" content="">
+		<!--creating the buttons and icons-->
 		<style>
 			@import url(http://fonts.googleapis.com/css?family=Raleway:300);
 			*{
@@ -247,7 +248,7 @@
 			}
 		</style>
 	</head>
-
+<!--Creating the board/page-->
 <body>
 	<h1>Sudoku</h1>
 	<h3>by <a href="mailto:erv4xa@virginia.edu">Erin Veasey</a></h3>
@@ -383,7 +384,7 @@
 
 <script>
 
-// Generate Function, this will generate your board
+// Generate Function, this will generate the board
 //-------------------------------------------------
 
 	var SOLVED_BOARD = new Array();
@@ -451,9 +452,9 @@
 
 
 	function solve() {
-			$(".load_parent").fadeIn(100);
+			
 			var start = new Date().getTime();
-
+			$(".load_parent").fadeIn(100);
 			var m = 1;
 			var board = new Array();
 			var atCell = 0;
