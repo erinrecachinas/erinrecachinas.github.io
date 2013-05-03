@@ -393,6 +393,7 @@
 	function generate(){
 		//Each time you generate, you better empty the inputs! Otherwise, issues.
 		$('div input').val('');
+		$('div input').css('font-weight', 'normal');
 
 		var start = new Date().getTime();
 		$(".load_parent").fadeIn(100);
@@ -430,6 +431,7 @@
 			for(i = 0; i<81; i++) {
 				if(board[i] != "" && board[i] != 0) {
 					$('div input').eq(i).val(board[i]);
+					$('div input').eq(i).css('font-weight','bold');
 				}
 			}
 		
