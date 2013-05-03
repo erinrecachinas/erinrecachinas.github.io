@@ -32,6 +32,7 @@
 				font-weight:100;
 				letter-spacing:4px;
 				text-align:center;
+				margin-bottom:50px;
 			}
 			a{
 				text-decoration:none;
@@ -47,18 +48,18 @@
 			}
 			.container{
 				position:relative;
-				left:39%;
+				margin:0 auto;
 				width:340px;
 				display:block;
 			}
 			.container>div>input{
 				/*border:1px solid black;*/
-				/*box-shadow:0 0 5px;*/
+				box-shadow:0 1px 5px #ccc;
 				width:32px;
 				height:32px;
 				display:inline-block;
 				border-radius:2px;
-				text-align:left;
+				text-align:center;
 				color:#555;
 				margin:0;
 				margin-top:auto;
@@ -66,7 +67,7 @@
 				position:relative;
 				font-size:1.3em;
 				padding-left:5px;
-
+				font-family:'Garamond';
 			}
 			#button1{
 				position:relative;
@@ -75,9 +76,9 @@
 				/*box-shadow:0 0 5px #222;*/
 				text-align:center;
 				font-weight:100;
-				margin-top:20px;
-				margin-right:2%;
-				left:40%;
+				/*margin-top:20px;*/
+				/*margin-right:2%;*/
+				/*left:40%;*/
 				display:inline-block;
 				cursor:pointer;
 				border-radius:2px;
@@ -95,7 +96,7 @@
 				text-align:center;
 				font-weight:100;
 				/*top:1000%;*/
-				left:41%;
+				/*left:41%;*/
 				display:inline-block;
 				cursor:pointer;
 				border-radius:2px;
@@ -116,9 +117,133 @@
 				text-align:center;
 				margin-bottom:2%;
 			}
-			#numbers>div{
+			.load_parent{
+				position:fixed;
+				left:38.4%;
+				top:16%;
+				display:none;
+				background:ghostwhite;
+				z-index:10000;
+				height:300px;
+				width:350px;
+				opacity:.6;
+			}
+			.loading {
+			    position: fixed;
+			    top:30%;
+			    left: 45.9%;
+			    z-index:100000;
+			    padding: 10px;
+			    background: rgba(20, 20, 20, 0.9);
+			  
+			    -webkit-border-radius: 5px;
+			    -moz-border-radius: 5px;
+			    border-radius: 5px;
+			  
+			    -webkit-box-shadow: inset 0 0 5px #000, 0 1px 1px rgba(255, 255, 255, 0.1);
+			    -moz-box-shadow: inset 0 0 5px #000, 0 1px 1px rgba(255, 255, 255, 0.1);
+			    -ms-box-shadow: inset 0 0 5px #000, 0 1px 1px rgba(255, 255, 255, 0.1);
+			    -o-box-shadow: inset 0 0 5px #000, 0 1px 1px rgba(255, 255, 255, 0.1);
+			    box-shadow: inset 0 0 5px #000, 0 1px 1px rgba(255, 255, 255, 0.1);
+			}
+
+			.loading-dot {
+			    float: left;
+			    width: 8px;
+			    height: 8px;
+			    margin: 0 4px;
+			    background: white;
+			  
+			    -webkit-border-radius: 50%;
+			    -moz-border-radius: 50%;
+			    border-radius: 50%;
+			  
+			    opacity: 0;
+			  
+			    -webkit-box-shadow: 0 0 2px black;
+			    -moz-box-shadow: 0 0 2px black;
+			    -ms-box-shadow: 0 0 2px black;
+			    -o-box-shadow: 0 0 2px black;
+			    box-shadow: 0 0 2px black;
+			  
+			    -webkit-animation: loadingFade 1s infinite;
+			    -moz-animation: loadingFade 1s infinite;
+			    animation: loadingFade 1s infinite;
+			}
+
+			.loading-dot:nth-child(1) {
+			    -webkit-animation-delay: 0s;
+			    -moz-animation-delay: 0s;
+			    animation-delay: 0s;
+			}
+
+			.loading-dot:nth-child(2) {
+			    -webkit-animation-delay: 0.1s;
+			    -moz-animation-delay: 0.1s;
+			    animation-delay: 0.1s;
+			}
+
+			.loading-dot:nth-child(3) {
+			    -webkit-animation-delay: 0.2s;
+			    -moz-animation-delay: 0.2s;
+			    animation-delay: 0.2s;
+			}
+
+			.loading-dot:nth-child(4) {
+			    -webkit-animation-delay: 0.3s;
+			    -moz-animation-delay: 0.3s;
+			    animation-delay: 0.3s;
+			}
+
+			@-webkit-keyframes loadingFade {
+			    0% { opacity: 0; }
+			    50% { opacity: 0.8; }
+			    100% { opacity: 0; }
+			}
+
+			@-moz-keyframes loadingFade {
+			    0% { opacity: 0; }
+			    50% { opacity: 0.8; }
+			    100% { opacity: 0; }
+			}
+
+			@keyframes loadingFade {
+			    0% { opacity: 0; }
+			    50% { opacity: 0.8; }
+			    100% { opacity: 0; }
+			}
+			#timer{
+				padding-top:40px;
+				text-align:center;
+			}
+			#drop_zone{
+				position:absolute;
+				border:1px dashed #aaa;
+				width:100px;
+			}
+			#upload{
+				position:absolute;
+				width:127px;
+				height:20px;
+				/*box-shadow:0 0 5px #222;*/
+				text-align:center;
+				font-weight:100;
+				/*top:1000%;*/
 				display:inline-block;
-				width:3%;
+				cursor:pointer;
+				border-radius:2px;
+				background-color:rgb(126, 178, 226); /*want green*/
+				color:#f8f8ff;
+				-webkit-transition:all .3s ease;
+				-moz-transition:all .3s ease;
+				transition:all .3s ease;
+			}
+			.container_button{
+				padding-top:20px;
+				position:relative;
+				margin:0 auto;
+				vertical-align: middle;
+				width:300px;
 			}
 		</style>
 	</head>
@@ -126,16 +251,15 @@
 <body>
 	<h1>Sudoku</h1>
 	<h3>by <a href="mailto:erv4xa@virginia.edu">Erin Veasey</a></h3>
-	<div id="numbers">
-		<div>1</div>
-		<div>2</div>
-		<div>3</div>
-		<div>4</div>
-		<div>5</div>
-		<div>6</div>
-		<div>7</div>
-		<div>8</div>
-		<div>9</div>
+	<div id="drop_zone">Drop files here</div>
+	<output id="list"></output>
+	<div class="load_parent">	
+		<div class="loading">
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+    		<div class="loading-dot"></div>
+		</div>
 	</div>
 	<div class="container">
 		<div id="sub1">
@@ -246,12 +370,16 @@
 			<input id="nine" style="border-bottom:1px solid black; border-right:2px solid black;"></input>
 		</div>
 	</div>
-	<div id="button1">generate</div>
-	<div id="button2">solve</div>
+	<div class="container_button">
+		<div id="button1">generate</div>
+		<div id="button2">solve</div>
+		<div id="timer"></div>
+	</div>
 </body>
 
 <!-- PUT SCRIPT TAGS DOWN HERE SO PAGE LOADS FASTER -->
-<script src="jquery.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<!-- <script src="http://iweb.dl.sourceforge.net/project/jsthread/release/Concurrent.Thread-full-20090713.js"></script> -->
 
 <script>
 
@@ -262,10 +390,13 @@
 
 	function generate(){
 		//Each time you generate, you better empty the inputs! Otherwise, issues.
+		$('div input').val('');
+
+		var start = new Date().getTime();
+		$(".load_parent").fadeIn(100);
 		var board = new Array();
 		var check = 0;
-		for (i=0; i<81;i++) {
-			$('div input').eq(i).val("");
+		for (i = 0; i<81; i++) {
 			board[i] = 0;
 		}
 		//randomly chosen number between 12 and 19 -- number of cells to fill
@@ -300,8 +431,11 @@
 				}
 			}
 		
-		
-		}
+		$(".load_parent").fadeOut(100);	
+		var end = new Date().getTime();
+		var time = end - start;
+		$("#timer").html('generate took '+time+' ms');
+	}
 	
 //----------------END GENERATE-----------------------
 
@@ -314,37 +448,12 @@
 //	OR
 //	perhaps showing multiple solutions if possible (harder)
 //----------------------------------------------------
-var r1 = new Array();
-var r2 = new Array();
-var r3 = new Array();
-var r4 = new Array();
-var r5 = new Array();
-var r6 = new Array();
-var r7 = new Array();
-var r8 = new Array();
-var r9 = new Array();
 
-var c1 = new Array();
-var c2 = new Array();
-var c3 = new Array();
-var c4 = new Array();
-var c5 = new Array();
-var c6 = new Array();
-var c7 = new Array();
-var c8 = new Array();
-var c9 = new Array();
-
-var b1 = new Array();
-var b2 = new Array();
-var b3 = new Array();
-var b4 = new Array();
-var b5 = new Array();
-var b6 = new Array();
-var b7 = new Array();
-var b8 = new Array();
-var b9 = new Array();
 
 	function solve() {
+			$(".load_parent").fadeIn(100);
+			var start = new Date().getTime();
+
 			var m = 1;
 			var board = new Array();
 			var atCell = 0;
@@ -354,30 +463,34 @@ var b9 = new Array();
 				if ($('div input').eq(i).val() != "") {
 					initial.push(i);
 					board[i] = parseInt($('div input').eq(i).val());
-					generateValues(board);
 				}
 				else board[i] = 0;
 			}
-
 			while (atCell >= 0 && atCell < 81) {
 				console.log(atCell);
 				if (initial.indexOf(atCell) != -1) {
 					if (forward) {
 						atCell++;
+						m=1;
 					}
 					else {
 						atCell--;
+						m=board[atCell-1];
 					}
 				} else if (parseInt($('div input').eq(atCell).val()) == 9) {
 					$('div input').eq(atCell).val("");
 					board[atCell] = 0;
 					forward = false;
 					atCell--;
+					m=board[atCell-1];
 				} else {
 
 					if($('div input').eq(atCell).val() == "" || parseInt($('div input').eq(atCell).val()) == 0) {
 						$('div input').eq(atCell).val(1);
 					}
+					
+					if(board[atCell] == "" || board[atCell] == 0)
+						board[atCell] = 1;
 					
 					else {
 						$('div input').eq(atCell).val(parseInt($('div input').eq(atCell).val()) + 1);
@@ -385,8 +498,8 @@ var b9 = new Array();
 					}
 				
 					if (isValidRows(atCell) == true && isValidCols(atCell) == true && isValidBox(atCell) == true) {
-						forward = true;
-						atCell++;
+							forward = true;
+							atCell++;
 					}
 				}
 					
@@ -394,6 +507,11 @@ var b9 = new Array();
 
 			
 			if(atCell>80) {
+				var end = new Date().getTime();
+				var time = end - start;
+				$("#timer").html('solve took '+time/1000+' s');
+
+				$(".load_parent").fadeOut(100);
 				for(i = 0;i<81;i++) {
 					console.log(board[i]);
 				}
@@ -403,101 +521,15 @@ var b9 = new Array();
 			}
 			
 			if(atCell<0) {
+				var end = new Date().getTime();
+				var time = end - start;
+				$("#timer").html('fail took '+time/1000+' s');
+
+				$(".load_parent").fadeOut(100);
 				alert("Board unsolvable, please enter valid board")
 				return false;
 			}
-		}
-
-function generateValues(board) {
-	for(z=0;z<81;z++) {
-		var n = parseInt($('div input').eq(z).val());
-		if(n !=0 || $('div input').eq(z).val() != "") {
-			if(z<9) {
-				r1.push(n);
-			}
-			else if(z>=9 && z<18) {
-				r2.push(n);
-			}
-				
-			else if(z>=18 && z<27) {
-				r3.push(n);
-			}
-				
-			
-			else if(z>=27 && z<36) {
-				r4.push(n);
-			}
-				
-			
-			else if(z>=36 && z<45) {
-				r5.push(n);
-			}
-			else if(z>=45 && z<54) {
-				r6.push(n);
-			}
-				
-			
-			else if(z>=54 && z<63) {
-				r7.push(n);
-			}
-				
-			
-			else if(z>=63 && z<72) {
-				r8.push(n);
-			}
-			
-			else if(z>=72 && z<81) {
-				r9.push(n);
-			}
-			
-			if(z%9 == 0) 
-				c1.push(n);
-			else if(z%9 == 1)
-				c2.push(n);
-			else if(z%9 == 2)
-				c3.push(n);
-			else if(z%9 == 3)
-				c4.push(n);
-			else if(z%9 == 4)
-				c5.push(n);
-			else if(z%9 == 5)
-				c6.push(n);
-			else if(z%9 == 6)
-				c7.push(n);
-			else if(z%9 == 7)
-				c8.push(n);
-			else if(z%9 == 8)
-				c9.push(n);
-			
-			if(z < 3 || (z >=9 && z<=11) || (z >=18 && z<=20)) 
-				b1.push(n);
-					
-			else if((z >=3 && z<=5) || (z >=12 && z<=14) || (z >=21 && z<=23)) 
-				b2.push(n);
-					
-			else if((z >=6 && z<=8) || (z >=15 && z<=17) || (z >=24 && z<=26)) 
-				b3.push(n);
-					
-			else if((z >=27 && z<=29) || (z >=36 && z<=38) || (z >=45 && z<=47))
-				b4.push(n);
-
-			else if((z >=30 && z<=32) || (z>=39 && z<=41) || (z >=48 && z<=50))
-				b5.push(n);
-
-			else if((z >=33 && z<=35) || (z >=42 && z<=44) || (z >=51 && z<=53)) 
-				b6.push(n);
-
-			else if((z >=54 && z<=56) || (z >=63 && z<=65) || (z >=72 && z<=74)) 
-				b7.push(n);
-
-			else if((z >=57 && z<=59) || (z >=66 && z<=68) || (z >=75 && z<=77)) 
-				b8.push(n);
-
-			else if((z >=60 && z<=62) || (z >=69 && z<=71) || (z>=78 && z<=80)) 
-				b9.push(n);
-		}
 	}
-}
 
 function isValidRows(atCell) {
 		for (i = 1; i < 10; i++) {
@@ -970,66 +1002,9 @@ function genBox(board, atCell) {
 		}
 		return true;
 	}
-function isSolvable(board) {
 
-			var atCell = 0;
-			var forward = true;
-			var initial = new Array();
-			for ( i = 0; i < 81; i++) {
-				if (board[i] != 0) {
-					initial.push(i);
-				}
-			}
-
-
-			while (atCell >= 0 && atCell < 81) {
-				console.log(atCell);
-				if (initial.indexOf(atCell) != -1) {
-					if (forward)
-						atCell++;
-					else
-						atCell--;
-				} else if(board[atCell] == 9) {
-					board[atCell] = "";
-					forward = false;
-					atCell--;
-				} else {
-					if(board[atCell] == "") {
-						board[atCell] = 1;
-					}
-					else {
-						board[atCell] = board[atCell] + 1;
-					}
-					if (genRow(board, atCell) == true && genCol(board,atCell) == true && genBox(board,atCell) == true) {
-						forward = true;
-						atCell++;
-					}
-				}
-					
-			}
-			
-			if(atCell>80) {
-				for(t=0;t<81;t++) {
-					SOLVED_BOARD[t] = board[t];
-				}
-				return true;
-			}
-			
-			if(atCell<0) {
-				return false;
-			}
-		}
 
 //---------------END SOLVE----------------------------
-
-
-
-
-
-// CHECK FUNCTION
-//----------------------------------------------------
-	
-//---------------END CHECK----------------------------
 
 
 
@@ -1041,21 +1016,54 @@ function jq_append(input_id,text){
 	$(input_id).val($(input_id).val()+text);
 }
 
-// THIS CAN BE USED TO HELP THE USER - WHEN YOU CLICK
-// ON A BOX, VALID NUMBERS APPEAR AT THE TOP
-$('.container>div>input').click(function(){
-	// $(this).fadeTo(400,.1);
-	$('#numbers').fadeTo(400,.4);
-	clicked = $('.container>div>input').index(this);
-	$('#numbers>div').click(function (clicked){
-		$(this).siblings().fadeTo(200,.1);
-	// 	$('.container>div>div').eq(clicked).append(this.html)
-	});
-});
-
 // Attaching the functions to the buttons!
 	$('#button1').click(generate);
 	$('#button2').click(solve);
+
+
+
+
+
+//
+//					File Import
+//------------------------------------------------------
+
+function handleFileSelect(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    var files = evt.dataTransfer.files; // FileList object.
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name), '</strong></li>'
+                  );
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    $('#list').append('<div id="upload">Upload</div>');
+}
+
+function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+}
+
+  // Setup the dnd listeners.
+var dropZone = document.getElementById('drop_zone');
+dropZone.addEventListener('dragover', handleDragOver, false);
+dropZone.addEventListener('drop', handleFileSelect, false);
+
+
+// Read file into Sudoku board
+function uploadFile(){
+  	// for(i=0;i<file.length;i++)
+  	// 	$('div input').eq(i).val(file[i]);
+  	console.log("Success!");
+}
+
+$('#upload').click(uploadFile);
 
 </script>
 </html>
