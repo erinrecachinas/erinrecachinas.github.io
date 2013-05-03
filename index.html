@@ -284,7 +284,7 @@
 			<input id="two" style="border-right:2px solid black;"></input>
 			<input id="three" style="border-left:1px solid black;"></input>
 			<input id="three"></input>
-			<input id="three" style="border-right:1px solid black;"></input>
+			<input id="three" style="border-right:2px solid black;"></input>
 		</div>
 
 		<div id="sub3">
@@ -443,12 +443,8 @@
 
 
 
-//	Solve function, this is going to be the bulk of the work.
-//	The goal is find a solution.
-//	Possible outputs include just appending where necessary
-//	OR
-//	perhaps showing multiple solutions if possible (harder)
-//----------------------------------------------------
+
+//-----------------SOLVE-----------------------------------
 
 
 	function solve() {
@@ -531,6 +527,8 @@
 				return false;
 			}
 	}
+
+	//------------------------END SOLVE----------------------------
 
 function isValidRows(atCell) {
 		for (i = 1; i < 10; i++) {
