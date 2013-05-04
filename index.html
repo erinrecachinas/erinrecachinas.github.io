@@ -394,6 +394,7 @@
 		//Each time you generate, you better empty the inputs! Otherwise, issues.
 		$('div input').val('');
 		$('div input').css('font-weight', 'normal');
+		$('div input').css('background-color', 'white');
 
 		var start = new Date().getTime();
 		$(".load_parent").fadeIn(100);
@@ -432,6 +433,7 @@
 				if(board[i] != "" && board[i] != 0) {
 					$('div input').eq(i).val(board[i]);
 					$('div input').eq(i).css('font-weight','bold');
+					$('div input').eq(i).css('background-color', '#eee');
 				}
 			}
 		
@@ -462,6 +464,7 @@
 			for ( i = 0; i < 81; i++) {
 				if ($('div input').eq(i).val() != "") {
 					initial.push(i);
+					$('div input').eq(i).css('font-weight', 'bold');
 					board[i] = parseInt($('div input').eq(i).val());
 				}
 				else board[i] = 0;
