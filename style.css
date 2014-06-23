@@ -73,7 +73,7 @@ h1 {
 h2 {
 	font-family:Open Sans;
 	font-weight:100;
-	font-size:24px;
+	font-size:20px;
 }
 
 ul {
@@ -85,7 +85,7 @@ li {
 	display:inline-block;
 	font-family:Open Sans;
 	font-weight:100;
-	font-size:1.6em;
+	font-size:1.2em;
 	margin:0 10px;
 	color:pink;
 }
