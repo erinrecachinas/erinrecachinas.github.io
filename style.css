@@ -1,5 +1,6 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans');
-@import url('http://fonts.googleapis.com/css?family=Sacramento');
+@import url('http://fonts.googleapis.com/css?family=Arvo');
+@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400');
 * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -66,13 +67,14 @@ header {
 
 h1 {
 	margin:0;
-	font-family: Sacramento,cursive;
+	font-family: Arvo;
+	font-weight:300;
 	font-size:36px;
 }
 
 h2 {
-	font-family:Open Sans;
-	font-weight:100;
+	font-family:Lato;
+	font-weight:300;
 	font-size:20px;
 }
 
@@ -83,8 +85,8 @@ ul {
 
 li {
 	display:inline-block;
-	font-family:Open Sans;
-	font-weight:100;
+	font-family:Lato;
+	font-weight:400;
 	font-size:1.2em;
 	margin:0 10px;
 	color:pink;
@@ -118,7 +120,11 @@ li {
 
 footer {
 	text-align: center;
-	font-family:Open Sans;
+	font-family:Lato;
 	font-weight:100;
-	margin-top:20px;
+	color:white;
+	padding-top:5px;
+	height:35px;
+	background-color:#8e44ad;
+
 }
