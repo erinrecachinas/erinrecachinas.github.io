@@ -27,17 +27,16 @@ export default function Home() {
     <>
       <div className="header" style={{ backgroundColor: headerBg }}>
         <header>
-          <h1 style={{ fontFamily: "var(--font-arvo)" }}>
-            <Image
-              src="/pic.jpg"
-              alt="Erin Recachinas"
-              width={600}
-              height={427}
-              style={{ maxWidth: "100%", height: "auto" }}
-              priority
-            />
-          </h1>
-          <h1 style={{ fontFamily: "var(--font-arvo)" }}>Erin Recachinas</h1>
+          <Image
+            className="profile-photo"
+            src="/pic.jpg"
+            alt="Erin Recachinas"
+            width={250}
+            height={250}
+            style={{ width: 250, height: 250, objectFit: "cover" }}
+            priority
+          />
+          <h1 className="name" style={{ fontFamily: "var(--font-arvo)" }}>Erin Recachinas</h1>
           <h2 style={{ fontFamily: "var(--font-nunito)" }}>
             I&apos;m Erin, an Engineering Manager leading Controls at{" "}
             <a href="https://cash.app/" target="_blank" rel="noopener noreferrer">
@@ -45,7 +44,8 @@ export default function Home() {
             </a>
             .
             <br />
-            My favorite things include Yoga, Cooking &amp; Baking, Star Trek, Mini Coopers, my
+            My favorite things include Yoga, Cooking &amp; Baking, Star Trek,{" "}
+            <span style={{ whiteSpace: "nowrap" }}>Mini Coopers</span>, my
             husband{" "}
             <a href="https://mike.recachinas.dev" target="_blank" rel="noopener noreferrer">
               Mike
@@ -72,6 +72,8 @@ export default function Home() {
         </header>
       </div>
 
+      <div className="gradient-bar" />
+
       {COLOR_BARS.map((bar) => (
         <div
           key={bar.id}
@@ -83,7 +85,7 @@ export default function Home() {
       ))}
 
       <footer style={{ fontFamily: "var(--font-nunito)" }}>
-        Made with ♡ by Erin
+        Made with ♡ by Erin · {new Date().getFullYear()}
       </footer>
     </>
   );
