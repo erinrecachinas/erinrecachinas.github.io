@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { generate, solve, type Board } from "./logic";
+import { useState, useCallback, useEffect, useRef } from "react";
+import type { Board } from "./logic";
+import type { WorkerRequest, WorkerResponse } from "./sudoku.worker";
 import styles from "./sudoku.module.css";
 import SudokuHeader from "./components/SudokuHeader";
 import SudokuBoard from "./components/SudokuBoard";
 import SudokuControls from "./components/SudokuControls";
 import SudokuStatus from "./components/SudokuStatus";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 const EMPTY_BOARD: Board = new Array(81).fill(0);
 
@@ -15,31 +17,53 @@ export default function SudokuPage() {
   const [initialCells, setInitialCells] = useState<Set<number>>(new Set());
   const [timer, setTimer] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const workerRef = useRef<Worker | null>(null);
 
-  const handleGenerate = useCallback(() => {
-    const start = performance.now();
-    const result = generate();
-    const elapsed = Math.round(performance.now() - start);
-    setBoard(result.board);
-    setInitialCells(result.initial);
-    setTimer(`generate took ${elapsed} ms`);
-    setMessage("");
+  useEffect(() => {
+    workerRef.current = new Worker(new URL("./sudoku.worker.ts", import.meta.url));
+
+    workerRef.current.onmessage = (e: MessageEvent<WorkerResponse>) => {
+      const data = e.data;
+      setLoading(false);
+
+      if (data.type === "generate") {
+        setBoard(data.board);
+        setInitialCells(new Set(data.initialCells));
+        setTimer(`generate took ${Math.round(data.elapsed)} ms`);
+        setMessage("");
+      } else if (data.type === "solve") {
+        const elapsed = (data.elapsed / 1000).toFixed(3);
+        if (data.board) {
+          setBoard(data.board);
+          setTimer(`solve took ${elapsed} s`);
+          setMessage("Board solved!");
+        } else {
+          setTimer(`fail took ${elapsed} s`);
+          setMessage("Board unsolvable — please enter a valid board");
+        }
+      }
+    };
+
+    return () => workerRef.current?.terminate();
   }, []);
 
-  const handleSolve = useCallback(() => {
-    const start = performance.now();
-    const result = solve(board, initialCells);
-    const elapsed = ((performance.now() - start) / 1000).toFixed(3);
+  const postMessage = useCallback((msg: WorkerRequest) => {
+    setLoading(true);
+    workerRef.current?.postMessage(msg);
+  }, []);
 
-    if (result) {
-      setBoard(result);
-      setTimer(`solve took ${elapsed} s`);
-      setMessage("Board solved!");
-    } else {
-      setTimer(`fail took ${elapsed} s`);
-      setMessage("Board unsolvable — please enter a valid board");
-    }
-  }, [board, initialCells]);
+  const handleGenerate = useCallback(() => {
+    postMessage({ type: "generate" });
+  }, [postMessage]);
+
+  const handleSolve = useCallback(() => {
+    postMessage({
+      type: "solve",
+      board,
+      initialCells: [...initialCells],
+    });
+  }, [board, initialCells, postMessage]);
 
   const handleCellChange = useCallback(
     (index: number, value: string) => {
@@ -56,7 +80,10 @@ export default function SudokuPage() {
   return (
     <div className={styles.page}>
       <SudokuHeader />
-      <SudokuBoard board={board} initialCells={initialCells} onCellChange={handleCellChange} />
+      <div className={styles.boardWrapper}>
+        {loading && <LoadingSpinner />}
+        <SudokuBoard board={board} initialCells={initialCells} onCellChange={handleCellChange} />
+      </div>
       <SudokuControls onGenerate={handleGenerate} onSolve={handleSolve} />
       <SudokuStatus message={message} timer={timer} />
     </div>
