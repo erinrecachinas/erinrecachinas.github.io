@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Arvo, Nunito } from "next/font/google";
+import { Arvo, Nunito, Raleway } from "next/font/google";
 import "./globals.css";
 
 const arvo = Arvo({
@@ -12,6 +12,12 @@ const nunito = Nunito({
   weight: ["200", "300", "400"],
   subsets: ["latin"],
   variable: "--font-nunito",
+});
+
+const raleway = Raleway({
+  weight: ["100", "300", "400"],
+  subsets: ["latin"],
+  variable: "--font-raleway",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${arvo.variable} ${nunito.variable}`}>
+    <html lang="en" className={`${arvo.variable} ${nunito.variable} ${raleway.variable}`}>
       <body>{children}</body>
     </html>
   );
